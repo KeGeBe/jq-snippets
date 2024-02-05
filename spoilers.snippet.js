@@ -22,7 +22,7 @@ const   SPOILER_TRIGGER             = '.spoiler-trigger',
     }
           
     if(undefined !== custom_self_class) {
-      jQuery('.spoiler-trigger').removeClass(custom_self_class);
+      jQuery(SPOILER_TRIGGER).removeClass(custom_self_class);
       localStorage.removeItem('custom-self-class'); 
     }
         
