@@ -2,18 +2,18 @@
 ## spoiler-snippet
 
 Minimal CSS styles required:
-```
-<style>
-    /* Spoiler must make sense */
-    .spoiler-body { display:none; }
+```css
 
-    /* Second class can be redefined in script */
-    .spoiler-body.its-opened { display:block; }
-</style>
+/* Spoiler must make sense */
+.spoiler-body { display:none; }
+
+/* Second class can be re-defined in script */
+.spoiler-body.its-opened { display:block; }
+
 ```
 
 HTML markup:
-```
+```html
 <!-- trigger -->
 <div class="spoiler-trigger"
      data-target=".spoiler-body"
@@ -34,7 +34,7 @@ HTML markup:
 ```
 
 OR:
-```
+```html
 <!-- trigger -->
 <div class="spoiler-trigger"
      data-target=".spoiler-body"
@@ -53,8 +53,6 @@ OR:
 ```
 
 Attributes stands for:
-```
-data-target: **Selector** of the hidden spoiler body
-data-custom-self-class: Class, that would be added to trigger element on spoiler open
-data-custom-body-class: Class, that would be added to <body> tag on spoiler open
-```
+- **data-target**: ***Selector*** of the hidden spoiler body
+- **data-custom-self-class**: ***Classname***, that would be added to trigger element on spoiler open
+- **data-custom-body-class**: ***Class***, that would be added to <body> tag on spoiler open
