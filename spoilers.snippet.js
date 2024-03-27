@@ -31,7 +31,7 @@ const   SPOILER_TRIGGER             = '.spoiler-trigger',
 
   //Closing all spoilers by clicking outside trigger or spoiler body
   jQuery(document).on('click',function (e) {
-    if (jQuery(e.target).closest(SPOILER_TRIGGER).length || jQuery(e.target.form).length ) return;
+    if (jQuery(e.target).closest(SPOILER_TRIGGER).length || jQuery(e.target).hasClass( SPOILER_BODY_OPENED_CLASS ) || jQuery(e.target.form).length ) return;
     closeOpenedSpoilers();
    });
    
