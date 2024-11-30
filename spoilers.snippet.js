@@ -1,4 +1,3 @@
-
 /**
  * Defining required selectors
  */
@@ -31,7 +30,7 @@ const   SPOILER_TRIGGER             = '.spoiler-trigger',
 
   //Closing all spoilers by clicking outside trigger or spoiler body
   jQuery(document).on('click',function (e) {
-    if (jQuery(e.target).closest(SPOILER_TRIGGER).length || jQuery(e.target).hasClass( SPOILER_BODY_OPENED_CLASS ) || jQuery(e.target.form).length ) return;
+    if (jQuery(e.target).closest(SPOILER_TRIGGER).length || jQuery(e.target).hasClass( SPOILER_BODY_OPENED_CLASS ) || jQuery(e.target).parents( '.' + SPOILER_BODY_OPENED_CLASS ).length || jQuery(e.target.form).length ) return;
     closeOpenedSpoilers();
    });
    
@@ -45,16 +44,16 @@ const   SPOILER_TRIGGER             = '.spoiler-trigger',
   
   
   //Processing spoiler mechanics
-  jQuery(SPOILER_TRIGGER).click(function(e) {
+  jQuery('body').delegate( SPOILER_TRIGGER,'click',function(e) {
 
     // If clicking on/inside spoiler body that is inside a spoiler trigger element - do nothing 
-    if( jQuery(e.target).parents(SPOILER_TRIGGER).length ) {
+    if( jQuery(this).parents(SPOILER_TRIGGER).length || jQuery(e.target).hasClass( SPOILER_BODY_OPENED_CLASS ) ) {
       return;
     }
 
     e.preventDefault();
 
-        //selector of spoiler body attached to current trigger (required)
+    //selector of spoiler body attached to current trigger (required)
     let target              = jQuery(this).data('target'),
         
         //class, that will be added to <body> on spoiler open (optional)
